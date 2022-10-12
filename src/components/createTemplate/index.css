@@ -2,6 +2,7 @@
   background-color: skyblue;
   height: 100vh;
   padding: 2rem;
+  overflow-y: auto;
 }
 
 .templateRow {
