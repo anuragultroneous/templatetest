@@ -33,6 +33,7 @@ function CreateTemplate() {
                 secondLabel={"Second Name"}
                 backColor={"pink"}
                 clickHandler={() => setName(false)}
+                name={true}
               />
             )}
             {hobbies && (
@@ -41,6 +42,8 @@ function CreateTemplate() {
                 secondLabel={"Second Name"}
                 backColor={"white"}
                 clickHandler={() => setHobbies(false)}
+                name={false}
+                dropDown={true}
               />
             )}
           </div>
