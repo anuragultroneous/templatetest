@@ -10,35 +10,80 @@ function FieldBox({
   clickHandler,
   name,
   dropDown,
+  firstValue,
+  firstChange,
+  secondChange,
+  secondValue,
 }) {
-  const [hobbies, setHobbies] = useState([]);
+  const [dropdown, setDropdown] = useState({
+    name: "",
+    options: [],
+    required: false,
+    toggle: false,
+  });
 
   const addInputFields = () => {
-    setHobbies((prevHobby) => [...prevHobby, {}]);
+    setDropdown({
+      ...dropdown,
+      options: [...dropdown.options, { hobbie: "" }],
+    });
   };
 
   const removeInputField = (e) => {
-    setHobbies((prevHobby) =>
-      prevHobby.filter((hobb) => prevHobby.indexOf(hobb) !== e)
+    let updatedHobby = dropdown.options.filter(
+      (hobby) => dropdown.options.indexOf(hobby) !== e
     );
+
+    setDropdown({ ...dropdown, options: updatedHobby });
+  };
+
+  const addingTheValue = (e, index) => {
+    const value = e.target.value;
+
+    const updatedHobbie = {
+      id: index,
+      task: value,
+    };
+
+    const updatedItem = dropdown.options.map((hobby) => {
+      return dropdown.indexOf(hobby) === e ? updatedHobbie : hobby;
+    });
+
+    // saving the array
+    setDropdown(updatedItem);
   };
 
   return (
     <Row style={{ backgroundColor: backColor }} className="fieldBoxRow">
       <Col xl={7}>
-        <InputBox label={firstLabel} type="text" />
-        {name && <InputBox label={secondLabel} type="text" />}
+        <InputBox
+          value={firstValue}
+          changeHadler={firstChange}
+          label={firstLabel}
+          type="text"
+        />
+        {name && (
+          <InputBox
+            value={secondValue}
+            changeHadler={secondChange}
+            label={secondLabel}
+            type="text"
+          />
+        )}
         {dropDown && (
           <>
             <Form.Label>Dropdown Options</Form.Label>{" "}
             <Button className="fieldCloseName" onClick={addInputFields}>
               +
             </Button>
-            {hobbies.map((hobby, index) => {
+            {dropdown.options.map((hobby, index) => {
               return (
                 <Row key={index} className="dropdownBtn">
                   <Col xl={10}>
-                    <InputBox />
+                    <InputBox
+                      value={dropdown.options.hobbie}
+                      changeHadler={(e) => addingTheValue(e, index)}
+                    />
                   </Col>
                   <Col xl={2}>
                     <Button

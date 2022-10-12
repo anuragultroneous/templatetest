@@ -5,12 +5,12 @@ const Header = ({ name, button }) => {
   return (
     <Row className="header">
       <div className="section">
-        <Col xl={6}>
+        <Col xl={8}>
           <div className="Title">
             <h1>{name}</h1>
           </div>
         </Col>
-        <Col xl={6}>{button ? <Button>Create</Button> : null}</Col>
+        <Col xl={4}>{button ? <Button>Create</Button> : null}</Col>
       </div>
     </Row>
   );

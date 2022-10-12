@@ -6,7 +6,12 @@ import Header from "../Header";
 import "./index.css";
 
 function CreateTemplate() {
-  const [name, setName] = useState(false);
+  const [name, setName] = useState({
+    firstName: "",
+    lastName: "",
+    required: "",
+    toggle: false,
+  });
   const [hobbies, setHobbies] = useState(false);
 
   return (
@@ -14,7 +19,10 @@ function CreateTemplate() {
       <Row className="templateRow">
         <Col xl={2} className="toolbox">
           <h4>ToolBox</h4>
-          <Button variant="link" onClick={() => setName(!name)}>
+          <Button
+            variant="link"
+            onClick={() => setName({ ...name, toggle: true })}
+          >
             Text Field
           </Button>
           <Button variant="link" onClick={() => setHobbies(!hobbies)}>
@@ -27,11 +35,19 @@ function CreateTemplate() {
             <Col xl={8}>
               <InputBox label={"Template Name"} type={"type"} />
             </Col>
-            {name && (
+            {name.toggle && (
               <FieldBox
                 firstLabel={"First Name"}
                 secondLabel={"Second Name"}
                 backColor={"pink"}
+                firstChange={(e) =>
+                  setName({ ...name, firstName: e.target.value })
+                }
+                firstValue={name.firstName}
+                secondChange={(e) =>
+                  setName({ ...name, lastName: e.target.value })
+                }
+                secondValue={name.lastName}
                 clickHandler={() => setName(false)}
                 name={true}
               />
