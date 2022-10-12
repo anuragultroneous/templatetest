@@ -3,16 +3,27 @@ import "./index.css";
 
 const Header = ({ name, button }) => {
   return (
-    <Row>
-      <div className="section">
-        <Col xl={6}>
-          <div className="Title">
-            <h1>{name}</h1>
-          </div>
-        </Col>
-        <Col xl={6}>{button ? <Button>Create</Button> : null}</Col>
-      </div>
-    </Row>
+    <div className="mainSection">
+      <Row className="mainRow">
+        <div className="section">
+          <Col xl={6}>
+            <div className="title">
+              <h1>{name}</h1>
+            </div>
+          </Col>
+          <Col xl={6} className="buttonSection">
+            {button ? <Button className="create">Create</Button> : null}
+          </Col>
+        </div>
+        <Row className="listRow">
+          <Col xl={12}>
+            <div className="listSection">
+              <p className="listTitle">Template name</p>
+            </div>
+          </Col>
+        </Row>
+      </Row>
+    </div>
   );
 };
 

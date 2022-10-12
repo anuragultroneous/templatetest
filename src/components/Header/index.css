@@ -1,3 +1,69 @@
+.mainSection {
+  background-color: skyblue;
+}
+.mainRow {
+  background-color: skyblue;
+  justify-content: center;
+  height: auto;
+  padding: 2rem 0;
+}
 .section {
   display: flex;
+  align-items: center;
+  /* padding: 4rem 1rem; */
+  border: 1px solid #000;
+  background-color: #fff;
+  width: 80%;
+  margin: 4rem 0 0;
+}
+.create {
+  width: 8rem;
+  font-size: 22px;
+  padding: 0 0.5rem;
+  background-color: skyblue;
+  border: 1px solid #000;
+}
+.create:hover {
+  background: skyblue;
+  border: 1px solid #000;
+}
+.create:active {
+  background: skyblue !important;
+  border: 1px solid #000 !important;
+}
+.title {
+  text-align: left;
+  padding: 2rem 0;
+}
+.title h1 {
+  font-size: 50px;
+}
+.buttonSection {
+  text-align: right;
+}
+.listRow {
+  width: 80%;
+  background-color: #fff;
+
+  border: 1px solid #000;
+}
+.listSection {
+  text-align: left;
+}
+.listTitle {
+  padding: 6rem 0 0;
+}
+
+@media (min-width: 320px) and (max-width: 450px) {
+  .create {
+    width: 6rem;
+    font-size: 18px;
+  }
+  .title h1 {
+    font-size: 25px;
+  }
+  .section {
+    justify-content: space-between;
+    padding: 0;
+  }
 }
