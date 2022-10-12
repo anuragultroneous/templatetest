@@ -3,7 +3,7 @@ import "./index.css";
 
 const Header = ({ name, button }) => {
   return (
-    <Row>
+    <Row className="header">
       <div className="section">
         <Col xl={6}>
           <div className="Title">

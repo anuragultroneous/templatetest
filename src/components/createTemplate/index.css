@@ -1,0 +1,30 @@
+.templateBody {
+  background-color: skyblue;
+  height: 100vh;
+  padding: 2rem;
+}
+
+.templateRow {
+  justify-content: space-around;
+}
+
+.toolbox {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin: 0 1rem;
+  padding: 0.5rem;
+  height: 20%;
+}
+
+.templatecontainer {
+  background-color: white;
+  margin: 0 1rem 1rem;
+  padding: 0 0.8rem 0.8rem;
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0.8rem 0 0;
+}
